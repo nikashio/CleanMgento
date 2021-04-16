@@ -1,0 +1,74 @@
+<?php
+
+?>
+<?php use Magento\Backend\Block\Widget\Form\Renderer\Fieldset\Element;
+
+if (0) : ?>
+	<link rel="stylesheet" type="text/css" href="<?php /* @escapeNotVerified */
+    echo $block->getViewFileUrl('Snmportal_Pdfprint::cm/lib/codemirror.css') ?>" />
+<?php endif; ?>
+
+<?php
+if (1) :
+    /**
+     * @var $block Element
+     */
+    $element = $block->getElement();
+    $note = $element->getNote() ? '<div class="note">' . $element->getNote() . '</div>' : '';
+    $elementBeforeLabel = $element->getExtType() == 'checkbox' || $element->getExtType() == 'radio';
+    $addOn = $element->getBeforeElementHtml() || $element->getAfterElementHtml();
+    $fieldId = ($element->getHtmlContainerId()) ? ' id="' . $element->getHtmlContainerId() . '"' : '';
+    $fieldClass = "admin__field field field-{$element->getId()} {$element->getCssClass()}";
+    $fieldClass .= ($elementBeforeLabel) ? ' choice' : '';
+    $fieldClass .= ($addOn) ? ' with-addon' : '';
+    $fieldClass .= ($element->getRequired()) ? ' _required' : '';
+    $fieldClass .= ($note) ? ' with-note' : '';
+    $fieldAttributes = $fieldId . ' class="' . $fieldClass . '" ' . $block->getUiId('form-field', $element->getId());
+    ?>
+    <?php if (!$element->getNoDisplay()): ?>
+    <?php if ($element->getType() == 'hidden'): ?>
+        <?php echo $element->getElementHtml() ?>
+    <?php else: ?>
+		<div<?php /* @escapeNotVerified */
+        echo $fieldAttributes ?>>
+			<div class="xxxadmin__field-control control" stylex="line-height: 3.4rem;">
+                <?php /* @escapeNotVerified */
+                echo ($addOn) ? '<div class="addon">' . $element->getElementHtml(
+                    ) . '</div>' : $element->getElementHtml(); ?>
+                <?php echo $block->getHintHtml() ?>
+                <?php /* @escapeNotVerified */
+                echo $note ?>
+			</div>
+            <?php if ($element->getScopeLabel()): ?>
+				<div class="field-service" value-scope="<?php /* @escapeNotVerified */
+                echo $element->getScopeLabel() ?>">
+				</div>
+            <?php endif; ?>
+		</div>
+		<script>
+			require(['jquery',
+				'Snmportal_Pdfprint/cm/lib/codemirror',
+				"Snmportal_Pdfprint/cm/addon/display/autorefresh",
+				'Snmportal_Pdfprint/cm/addon/hint/show-hint',
+				'Snmportal_Pdfprint/cm/addon/hint/css-hint',
+				'Snmportal_Pdfprint/cm/addon/hint/html-hint',
+				'Snmportal_Pdfprint/cm/addon/hint/magento-hint',
+				"Snmportal_Pdfprint/cm/mode/htmlmixed/htmlmixed",
+				"Snmportal_Pdfprint/cm/mode/magento/magento",
+				'Snmportal_Pdfprint/cm/mode/css/css',
+			], function($, CodeMirror) {
+				CodeMirror.fromTextArea(document.getElementById("<?php echo $element->getHtmlId();?>"), {
+					lineNumbers: true,
+					autoRefresh: true,
+					extraKeys  : {"Ctrl-Space": "autocomplete"},
+					mode       : "<?php echo $element->getData('codemode');?>"
+				})
+					.on('change', function(cMirror) {
+						document.getElementById("<?php echo $element->getHtmlId();?>").value = cMirror.getValue();
+					});
+			});
+		</script>
+    <?php endif; ?>
+<?php endif; ?>
+<?php
+endif;

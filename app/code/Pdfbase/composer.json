@@ -1,0 +1,14 @@
+{
+  "name": "snmportal/module-pdfbase",
+  "description": "PDF base library",
+  "require": {
+  },
+  "version": "2.1.3",
+  "type": "magento2-module",
+  "autoload": {
+    "files": [ "registration.php" ],
+    "psr-4": {
+      "Snmportal\\Pdfbase\\": ""
+    }
+  }
+}

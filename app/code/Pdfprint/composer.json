@@ -1,0 +1,17 @@
+{
+  "name": "snmportal/module-pdfprint",
+  "description": "PDF document for invoices",
+  "type": "magento2-module",
+  "version": "2.8.16",
+  "require": {
+    "snmportal/module-pdfbase": "^2.1"
+  },
+  "autoload": {
+    "files": [
+      "registration.php"
+    ],
+    "psr-4": {
+      "Snmportal\\Pdfprint\\": ""
+    }
+  }
+}

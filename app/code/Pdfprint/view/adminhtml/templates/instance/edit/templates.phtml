@@ -1,0 +1,213 @@
+<?php
+// @codingStandardsIgnoreFile
+
+/* @var $block Columns */
+
+use Snmportal\Pdfprint\Block\Adminhtml\Template\Edit\Tab\Layout\Columns;
+
+$element = $block->getElement();
+?>
+<?php $_jsName = $block->getJsName() ?>
+<?php $_htmlId = $block->getElement()
+                       ->getHtmlId() ?>
+<?php $_htmlClass = $block->getElement()
+                          ->getClass() ?>
+<?php $_htmlName = $block->getElement()
+                         ->getName() ?>
+<?php $_readonly = $block->getElement()
+                         ->getReadonly() ?>
+
+
+<div class="field" id="attribute-<?php /* @escapeNotVerified */
+echo $_htmlId ?>-container" data-attribute-code="<?php /* @escapeNotVerified */
+echo $_htmlId ?>"
+	 data-apply-to="<?php echo $block->escapeHtml(
+         $this->helper('Magento\Framework\Json\Helper\Data')
+              ->jsonEncode(
+                  $element->hasEntityAttribute() ? $element->getEntityAttribute()
+                                                           ->getApplyTo() : []
+              )
+     ) ?>">
+    <?php if ($block->getElement()
+                    ->getLabel()) : ?>
+		<label class="label"><span><?php /* @escapeNotVerified */
+                echo $block->getElement()
+                           ->getLabel() ?></span></label>
+    <?php endif; ?>
+	<style>
+		.admin-btemplates .admin__control-table .col-name {
+			width: 100%;
+			border-bottom: none;
+		}
+
+		.admin-btemplates .admin__control-table .col-delete {
+			width: 40px;
+			border-bottom: none;
+		}
+
+		.admin-btemplates .admin__control-table .col-value textarea {
+			width: 100%;
+			height: 6em;
+			min-height: 1em;
+		}
+
+		.admin-btemplates ul {
+			list-style-type: none;
+		}
+
+		.admin-btemplates .codestyle {
+			margin-bottom: 10px;
+			background-color: #efefef;
+			padding: 1.3rem 1rem 1.3rem 1rem;
+		}
+
+		.admin-btemplates .codestyle textarea {
+			width: 100%;
+		}
+
+		.admin-btemplates .col-delete button {
+			font-family: 'Admin Icons';
+		}
+
+		.admin-btemplates .col-delete button span:before {
+			content: '\e620';
+		}
+
+	</style>
+	<div class="control admin-btemplates">
+		<ul id="<?php /* @escapeNotVerified */
+        echo $_htmlId ?>_container"></ul>
+		<div class="col-actions-add">
+            <?php echo $block->getAddButtonHtml() ?>
+		</div>
+		<script id="<?php echo $_jsName; ?>RowTemplate" type="text/x-magento-template">
+			<li>
+				<table class="admin__control-table <?php echo $_jsName ?>_table">
+					<thead>
+					<tr>
+						<th class="col-name required"><?php /* @escapeNotVerified */
+                            echo __('Block Name') ?></th>
+						<th class="col-delete"><?php /* @escapeNotVerified */
+                            echo __('Action') ?></th>
+					</tr>
+					</thead>
+					<tbody>
+					<tr>
+						<td>
+							<input class="<?php /* @escapeNotVerified */
+                            echo $_htmlClass ?> required-entry " type="text" name="<?php /* @escapeNotVerified */
+                            echo $_htmlName ?>[<%- data.index %>][name]" value="<%- data.name %>" id="<?php echo $_jsName; ?>_row_<%- data.index %>_name" />
+						</td>
+						<td class="col-delete"><input type="hidden" name="<?php /* @escapeNotVerified */
+                            echo $_htmlName ?>[<%- data.index %>][delete]" class="delete" value="" id="<?php echo $_jsName; ?>_row_<%- data.index %>_delete" />
+							<button title="<?php /* @escapeNotVerified */
+                            echo $block->escapeHtml(__('Delete')); ?>"
+									type="button" class="action- scalable delete icon-btn delete-product-option" id="<?php echo $_jsName; ?>_row_<%- data.index %>_delete_button" onclick="return <?php echo $_jsName; ?>Control.deleteItem(event);">
+								<span></span></button>
+						</td>
+					</tr>
+					</tbody>
+				</table>
+			</li>
+			<li class="codestyle">
+                <textarea
+					class="<?php /* @escapeNotVerified */
+                    echo $_htmlClass ?>  "
+					name="<?php /* @escapeNotVerified */
+                    echo $_htmlName ?>[<%- data.index %>][value]"
+					id="<?php echo $_jsName; ?>_row_<%- data.index %>_value"><%- data.value %></textarea>
+			</li>
+		</script>
+
+		<script>
+			require(['mage/template',
+				"prototype",
+				"mage/adminhtml/form",
+				"Snmportal_Pdfprint/cm/lib/codemirror",
+				"Snmportal_Pdfprint/cm/addon/display/autorefresh",
+				"Snmportal_Pdfprint/cm/mode/php/php"
+			], function(mageTemplate, a, b, CodeMirror) {
+
+//<![CDATA[
+
+				var <?php echo $_jsName;?>Control = {
+					template      : mageTemplate('<?php echo '#' . $_jsName;?>RowTemplate'),
+					itemsCount    : 0,
+					addItem       : function(data) {
+						if (!data) {
+							data = {
+								name: '', value: '',
+							};
+						}
+						data.index = this.itemsCount++;
+						Element.insert($('<?php /* @escapeNotVerified */ echo $_htmlId ?>_container'), {
+							bottom: this.template({
+								data: data
+							})
+						});
+
+						var codeElm = '<?php echo $_jsName;?>_row_' + data.index + '_value';
+						if (document.getElementById(codeElm)) {
+							CodeMirror.fromTextArea(document.getElementById(codeElm), {
+								lineNumbers: true, autoRefresh: true, mode: "php"
+							}).on('change', function(cMirror) {
+								document.getElementById(codeElm).value = cMirror.getValue();
+							});
+						}
+
+                        <?php if ($_readonly): ?>
+						$('<?php /* @escapeNotVerified */ echo $_htmlId ?>_container').select('input', 'select').each(this.disableElement);
+						$('<?php /* @escapeNotVerified */ echo $_htmlId ?>_container').up('table').select('button').each(this.disableElement);
+                        <?php else: ?>
+						$('<?php /* @escapeNotVerified */ echo $_htmlId ?>_container').select('input', 'select').each(function(el) {
+							Event.observe(el, 'change', el.setHasChanges.bind(el));
+						});
+                        <?php endif; ?>
+					},
+					disableElement: function(el) {
+						el.disabled = true;
+						el.addClassName('disabled');
+					},
+					deleteItem    : function(event) {
+						var tr = Event.findElement(event, 'li');
+						if (tr) {
+							Element.select(tr, '.delete').each(function(elem) {
+								elem.value = '1'
+							});
+							Element.select(tr, ['input', 'select']).each(function(elem) {
+								elem.hide()
+							});
+							Element.hide(tr);
+							Element.addClassName(tr, 'no-display template');
+							tr = Element.nextSiblings(tr);
+							tr = tr[0];
+							Element.select(tr, '.delete').each(function(elem) {
+								elem.value = '1'
+							});
+							Element.select(tr, ['input', 'select']).each(function(elem) {
+								elem.hide()
+							});
+							Element.hide(tr);
+							Element.addClassName(tr, 'no-display template');
+
+						}
+						return false;
+					}
+				};
+                <?php foreach ($block->getValues() as $_item): ?>
+                <?php echo $_jsName;?>Control.addItem(<?php echo $this->helper('Magento\Framework\Json\Helper\Data')
+                                                                      ->jsonEncode($_item);?>);
+                <?php endforeach; ?>
+                <?php if ($_readonly): ?>
+				$('<?php /* @escapeNotVerified */ echo $_htmlId ?>_container').up('table').select('button')
+					.each(<?php echo $_jsName;?>Control.disableElement);
+                <?php endif; ?>
+
+				window.<?php echo $_jsName;?>Control = <?php echo $_jsName;?>Control;
+//]]>
+
+			});
+		</script>
+	</div>
+</div>
+

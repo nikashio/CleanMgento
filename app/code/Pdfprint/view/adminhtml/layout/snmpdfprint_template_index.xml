@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+	<update handle="snmpdfprint_template_block"/>
+	<body>
+		<!--
+		<referenceContainer name="page.main.actions">
+			<block class="Magento\Backend\Block\Template" acl="Snmportal_Pdfprint::template_setup" name="template_setup"
+				   template="Snmportal_Pdfprint::template/toolbar/setup.phtml"/>
+		</referenceContainer>
+		-->
+		<referenceContainer name="content">
+			<block class="Snmportal\Pdfprint\Block\Adminhtml\Template" name="snmportal.pdfprint.template.container"/>
+		</referenceContainer>
+	</body>
+</page>

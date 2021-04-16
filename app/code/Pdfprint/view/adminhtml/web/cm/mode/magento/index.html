@@ -1,0 +1,64 @@
+<!doctype html>
+------
+{{template config_path="design/email/footer_template"}}
+------
+{{depend xxx}}xxx{{/depend}}
+{{if logo_width}}
+width="{{var logo_width}}"
+{{else}}
+width="180"
+{{/if}}
+------
+widget
+------
+
+{{block type="catalog/product_list" id="cms_product_list" output="toHtml" category_id="3"}}
+{{block type='cms/block’ customVar='1’ methodToCall='test’}}
+------
+{{config path="path/to/xml/node"}}
+------
+{{htmlescape var="gefährlich"}}
+------
+{{var subscriber.getConfirmationLink()}}
+{{var passedInVariable.horse}}
+
+{{view url="css/styles.css"}}
+{{media url="somepicture.png"}}
+{{skin url="somepicture.png"}}
+
+{{store url="somewhere"}}
+{{store direct_url="somewhere.html"}}
+
+{{store url="contacts"}} // http://dave.magento.store/contacts/
+{{store direct_url="html_file.html"}} // http://dave.magento.store/html_file.html
+{{store direct_url="goosey.html" _query_param="horseparam"}} /
+
+*   {{trans "string to translate"}}
+*   {{trans "string to %var" var="$variable"}}
+
+*     {{css file="css/filename.css"}} - Load file from theme directory
+*     {{css file="Magento_Sales::css/filename.css"}} - Load file from module directory or module directory in theme
+
+------
+
+Protocol
+
+{{protocol}} - current protocol http or https
+{{protocol url="www.domain.com/"}} domain URL with current protocol
+{{protocol http="http://url" https="https://url"}
+
+------
+Config
+Puts a system config setting into the email
+{{config path="path/to/config"}}
+------
+{{customvar code="custom_var_code"}}
+------
+{{inlinecss file="path/to/file.css"}}
+------
+{{layout handle="my_custom_layout_handle_to_be_used" variable="test" method="moose"}}
+------
+------
+------
+------
+------

@@ -1,0 +1,68 @@
+<?php
+?>
+<?php
+
+use Magento\Backend\Block\Widget\Form\Renderer\Fieldset\Element;
+
+if (1) :
+    /* @var $block Element */
+    $element = $block->getElement();
+    $note = $element->getNote() ? '<div class="note">' . $element->getNote() . '</div>' : '';
+    $elementBeforeLabel = $element->getExtType() == 'checkbox' || $element->getExtType() == 'radio';
+    $addOn = $element->getBeforeElementHtml() || $element->getAfterElementHtml();
+    $fieldId = ($element->getHtmlContainerId()) ? ' id="' . $element->getHtmlContainerId() . '"' : '';
+    $fieldClass = "admin__field field field-{$element->getId()} {$element->getCssClass()}";
+    $fieldClass .= ($elementBeforeLabel) ? ' choice' : '';
+    $fieldClass .= ($addOn) ? ' with-addon' : '';
+    $fieldClass .= ($element->getRequired()) ? ' _required' : '';
+    $fieldClass .= ($note) ? ' with-note' : '';
+    $fieldAttributes = $fieldId . ' class="' . $fieldClass . '" ' . $block->getUiId('form-field', $element->getId());
+    ?>
+
+    <?php if (!$element->getNoDisplay()): ?>
+    <?php if ($element->getType() == 'hidden'): ?>
+        <?php echo $element->getElementHtml() ?>
+    <?php else: ?>
+		<div<?php /* @escapeNotVerified */
+        echo $fieldAttributes ?>>
+            <?php if ($elementBeforeLabel): ?>
+                <?php echo $element->getElementHtml() ?>
+                <?php echo $element->getLabelHtml() ?>
+                <?php /* @escapeNotVerified */
+                echo $note ?>
+            <?php else: ?>
+                <?php echo $element->getLabelHtml() ?>
+				<div class="admin__field-control control" stylex="line-height: 3.4rem;">
+                    <?php if ($element->getData('referenz_value')): ?>
+                        <?php echo($element->getData('referenz_value')) ?>
+						<br />
+						<input id="<?php echo $element->getData(
+                            'delete_field'
+                        ); ?>" value="on" type="checkbox" name="<?php echo $element->getData(
+                            'referenz_field'
+                        ); ?>_delete" />
+
+						<label for="<?php echo $element->getData(
+                            'referenz_field'
+                        ); ?>_delete"><span><?php echo $element->getData('delete_label'); ?></span></label>
+                    <?php else: ?>
+                        <?php /* @escapeNotVerified */
+                        echo ($addOn) ? '<div class="addon">' . $element->getElementHtml(
+                            ) . '</div>' : $element->getElementHtml(); ?>
+
+                    <?php endif; ?>
+                    <?php echo $block->getHintHtml() ?>
+                    <?php /* @escapeNotVerified */
+                    echo $note ?>
+				</div>
+            <?php endif; ?>
+            <?php if ($element->getScopeLabel()): ?>
+				<div class="field-service" value-scope="<?php /* @escapeNotVerified */
+                echo $element->getScopeLabel() ?>">
+				</div>
+            <?php endif; ?>
+		</div>
+    <?php endif; ?>
+<?php endif; ?>
+<?php
+endif;

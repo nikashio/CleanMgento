@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+    <acl>
+        <resources>
+            <resource id="Magento_Backend::admin">
+                <resource id="Snmportal_Base::base" title="SNM-Portal" sortOrder="10">
+                    <resource id="Snmportal_Pdfprint::base" title="pdfPRINT">
+                        <resource id="Snmportal_Pdfprint::template" title="Template" sortOrder="11">
+                            <resource id="Snmportal_Pdfprint::template_new" title="New Template" sortOrder="10"/>
+                            <resource id="Snmportal_Pdfprint::template_save" title="Save Template" sortOrder="20"/>
+                            <resource id="Snmportal_Pdfprint::template_delete" title="Delete Template" sortOrder="30"/>
+                        </resource>
+                        <!--
+                        <resource id="Snmportal_Pdfprint::settings" title="Settings" sortOrder="20"/>
+                        <resource id="Snmportal_Pdfprint::settings" title="Settings" sortOrder="12"/>
+                            <resource id="Snmportal_Pdfprint::template_setup" title="Run Setup" sortOrder="40" />
+                        <resource id="Snmportal_Pdfprint::setup" title="Setup" sortOrder="12">
+                            <resource id="Snmportal_Pdfprint::setup_save" title="Save Setup" sortOrder="10" />
+                        </resource>
+                        -->
+                    </resource>
+                </resource>
+                <resource id="Magento_Backend::stores">
+                    <resource id="Magento_Backend::stores_settings">
+                        <resource id="Magento_Config::config">
+                            <resource id="Snmportal_Base::settings" title="SNM-Portal">
+                                <resource id="Snmportal_Pdfprint::settings" title="Pdfprint"/>
+                            </resource>
+                        </resource>
+                    </resource>
+                </resource>
+            </resource>
+        </resources>
+
+    </acl>
+</config>

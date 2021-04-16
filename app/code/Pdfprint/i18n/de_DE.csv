@@ -1,0 +1,193 @@
+"Import from Magento1 data","Import from Magento1 data"
+"PDF Files","PDF Files"
+"PDF Background","PDF Hintergund"
+"Please use PDF with version <= 1.4 as background template","Bitte benutzen Sie ein PDF in der version <= 1.4"
+"Use PDF Appendix","PDF anhängen"
+"Template Status","Template Status"
+"PDF Appendix","PDF Anhang"
+"Email Options","Email Options"
+"Use Attachment 1","Anhang 1 benutzen"
+"PDF Attachment 1","PDF Anhang 1"
+"Name Attachment 1","Name Anhang 1"
+"Use Attachment 2","Anhang 2 benutzen"
+"PDF Attachment 2","PDF Anhang 2"
+"Name Attachment 2","Name Anhang 2"
+"Pdf Templates","Pdf Vorlagen"
+"Export Template","Export Vorlage"
+"Items page 1","Einträge für Seite 1"
+"Items page 2-n","Einträge für Seite 2-n"
+"Free Items","Freie Einträge"
+"Add Column","Neue Spalte"
+Position,Position
+"Product Info","Product Info"
+"Product Info and SKU","Product Info and SKU"
+SKU,SKU
+Price,Price
+"Price Excl.Tax","Price Excl.Tax"
+"Price Incl.Tax","Price Incl.Tax"
+"Original Price","Original Price"
+Qty,Qty
+"Qty Ordered","Qty Ordered"
+"Qty Invoiced","Qty Invoiced"
+"Qty Shipped","Qty Shipped"
+"Qty Canceled","Qty Canceled"
+"Qty Refunded","Qty Refunded"
+"Qty Number","Qty Number"
+Subtotal,Subtotal
+"Tax Amount","Tax Amount"
+"Tax Percent","Tax Percent"
+"Discount Amount","Discount Amount"
+"Row Total","Row Total"
+"Row Total Excl. Tax","Row Total Excl. Tax"
+"Row Total Incl. Tax","Row Total Incl. Tax"
+Status,Status
+Image,Image
+"All Websites","All Websites"
+"Add Item","Add Item"
+"Add Block","Add Block"
+"Only if useful","Nur wenn es sinnvoll ist"
+Always,Always
+"Add Translation","Neue Übersetzungen"
+"Text Before Table","Text vor Tabelle"
+"Before table","Vor der Tabelle"
+"Text After Table","Text nach Tabelle"
+"After table","Nach der Tabelle"
+"Table columns","Tabellen Spalten"
+"Use Custom Columns","Eigene Spaltendefinition benutzen"
+"Table Totals","Summenberechnung"
+"Use Custom Totals","Eigene Reihenfolge benutzen"
+"Use Default Tax Renderer","Default Steuer-Renderer"
+"Display Full Tax Summary","Steuern vollständig anzeigen"
+"Display Tax Total","Steuerzusammenfassung"
+"Table and Text","Tabellen und Text"
+"Template Information","Vorlagen Information"
+"Template Name","Vorlagen Name"
+Type,Type
+"Default Template","Default Vorlagen"
+"Yes, for automatic generation.","Ja, für automatische Erstellung."
+"Download Name","Download Name"
+General,General
+"File to Import","File to Import"
+Content,Content
+Option,Option
+Settings,Settings
+"Import File","Import File"
+"Please use (*.snmportal-pdfprint-template) File","Bitte benutzen Sie eine  (*.snmportal-pdfprint-template) Datei"
+"Download Sample Templates from SNM-Portal","Download Beispiel Vorlagen von SNM-Portal"
+"Import from File","Import from File"
+"Margins Page 1","Seitenränder Seite 1"
+"Margins Page 2-n","Seitenränder Seite 2-n"
+"CSS Style","CSS Style"
+Style,Style
+"PHTML Templates","PHTML Vorlagen"
+"Block Templates","Block Templates"
+"Translation Table","Übersetzungen Table"
+Translation,Übersetzungen
+"Template: %1","Template: %1"
+"Block template not found: %1","Block template not found: %1"
+"Please select item(s).","Please select item(s)."
+"A total of %1 record(s) have been deleted.","A total of %1 record(s) have been deleted."
+Setup,Setup
+PDFPRINT,PDFPRINT
+"Please specify a correct template.","Please specify a correct template."
+"The template has been deleted.","The template has been deleted."
+"We can't find a template to delete.","We can't find a template to delete."
+"Copy ","Copy "
+"Edit Template","Edit Template"
+Templates,Templates
+SNM-Portal,SNM-Portal
+"Manage Templates","Manage Templates"
+"This template no longer exists.","This template no longer exists."
+"The Magento1 data has been imported.","The Magento1 data has been imported."
+"No Magento1 data could be found. <a target=""_blank"" href=""http://www.snm-portal.com/magento2_setup#importm1"">Help</a>","No Magento1 data could be found. <a target=""_blank"" href=""http://www.snm-portal.com/magento2_setup#importm1"">Help</a>"
+"You saved this template.","You saved this template."
+"Something went wrong while saving the template.","Something went wrong while saving the template."
+"This file is invalid. Please fix errors and re-upload the file.","This file is invalid. Please fix errors and re-upload the file."
+"You've reached an error limit (%1). Please fix errors and re-upload the file.","You've reached an error limit (%1). Please fix errors and re-upload the file."
+"Please fix errors and re-upload the file. Or press ""Import"" to skip rows with errors.","Please fix errors and re-upload the file. Or press ""Import"" to skip rows with errors."
+"The file is partially valid, but we can't import it for some reason.","The file is partially valid, but we can't import it for some reason."
+"in rows:","in rows:"
+"This file is empty. Please try another one.","This file is empty. Please try another one."
+"File is valid! To start import process press ""Import"" button","File is valid! To start import process press ""Import"" button"
+"The file is valid, but we can't import it for some reason.","The file is valid, but we can't import it for some reason."
+"Checked rows: %1, checked entities: %2, invalid rows: %3, total errors: %4","Checked rows: %1, checked entities: %2, invalid rows: %3, total errors: %4"
+"Please fix errors and re-upload the file.","Please fix errors and re-upload the file."
+"The file was not uploaded.","The file was not uploaded."
+"Sorry, but the data is invalid or the file is not uploaded.","Sorry, but the data is invalid or the file is not uploaded."
+Order,Order
+Invoice,Invoice
+Shipping,Shipping
+"Credit Memo","Credit Memo"
+"No template found! Please add a pdfPRINT template for this document/store.","No template found!"
+"Document-ID:%1, Increment-id: %2","Document-ID:%1, Increment-id: %2"
+Exception:,Exception:
+"No layout ""sales_order_printcreditmemo"" block: ""sales.order.print.creditmemo"" found!","No layout ""sales_order_printcreditmemo"" block: ""sales.order.print.creditmemo"" found!"
+"No layout ""sales_order_printinvoice"" block: ""sales.order.print.invoice"" found!","No layout ""sales_order_printinvoice"" block: ""sales.order.print.invoice"" found!"
+"No layout ""sales_order_print"" block: ""sales.order.print"" found!","No layout ""sales_order_print"" block: ""sales.order.print"" found!"
+"No layout ""sales_order_printshipment"" block: ""sales.order.print.shipment"" found!","No layout ""sales_order_printshipment"" block: ""sales.order.print.shipment"" found!"
+Enabled,Enabled
+Disabled,Disabled
+No,No
+Yes,Yes
+"The pdf template you uploaded has no extension.","The pdf template you uploaded has no extension."
+"The pdf template you uploaded has no extension "".pdf"".","The pdf template you uploaded has no extension "".pdf""."
+"The source file moving process failed.","The source file moving process failed."
+"The source file moving process failed.<br/>From %1<br/>To %2.","The source file moving process failed.<br/>From %1<br/>To %2."
+"Store ","Store "
+Default,Default
+Name,Name
+Width,Width
+"CSS class","CSS class"
+Action,Action
+"Sort Option","Sort Option"
+"X-pos (mm)","X-pos (mm)"
+"Y-pos (mm)","Y-pos (mm)"
+"Width (mm)","Breite (mm)"
+"Height (mm)","Höhe (mm)"
+"Style class","Style class"
+Value,Value
+Markup,Markup
+Php,Php
+Condition,Condition
+"Left (mm)","Links (mm)"
+"Top (mm)","Oben (mm)"
+"Right (mm)","Rechts (mm)"
+"Bottom (mm)","Unten (mm)"
+"Value (PHTML-Code)","Value (PHTML-Code)"
+Visible,Visible
+Text,Text
+"Is RegEx","Is RegEx"
+"Stop","Stop"
+"Use in Label","In Bezeichnung"
+"Use in Value","Im Wert"
+Comment,Comment
+Install:,Install:
+"Sample data","Sample data"
+"German Version","German Version"
+"English Version","English Version"
+"Chinese Version","Chinese Version"
+"Arabic Version (RTL)","Arabic Version (RTL)"
+"Import from Magento1","Import from Magento1"
+"string to translate","string to translate"
+"string to %var","string to %var"
+pdfPRINT,pdfPRINT
+License,License
+"Current Version","Aktuelle Version"
+"Log Messages (var/log/snm-portal.log)","Log Messages (var/log/snm-portal.log)"
+"Use PDF in frontend","PDF im Frontend benutzen"
+"Attach PDF to email","PDF an E-Mail anhängen"
+"Show Default Print Button","Standard Druck-Button anzeigen"
+Shipment,Shipment
+Creditmemo,Creditmemo
+Enable,Enable
+Disable,Disable
+ID,ID
+Store,Store
+"Is Active","Is Active"
+Active,Active
+Inactive,Inactive
+"Is Default","Is Default"
+Edit,Edit
+"SNM Print Orders","SNM Print Orders"
+"When saving the document, create the PDF and store it in the directory.<br>(For example var/pdf-documents)","Beim Speichern des Dokuments das PDF erzeugen und ins Verzeichnis ablegen. (Zum Beispiel var/pdf-documents)"
+"Save PDF to the archive","PDF ins Verzeichnis ablegen'

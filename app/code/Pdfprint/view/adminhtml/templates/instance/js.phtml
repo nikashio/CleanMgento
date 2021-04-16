@@ -1,0 +1,113 @@
+<?php
+?>
+<script>
+	require(["jquery", "prototype"], function(jQuery) {
+		/*
+         setSettings = function(urlTemplate, typeElement) {
+         var url;
+
+         if (!jQuery('#edit_form').valid()) {
+         return false;
+         }
+         typeElement = $F(typeElement);
+         url = mageTemplate(urlTemplate, {
+         data: {
+         'type': typeElement
+         }
+         });
+         setLocation(url);
+         };
+         });
+         */
+
+		function hideShowPDFTemplate() {
+
+			if ($('layout_pdf_appendix_use')) {
+				if ($('layout_pdf_appendix_use').value == 1) {
+					if ($('layout_file_pdf_appendix')) {
+						$('layout_file_pdf_appendix').up('div.field').show();
+						$('layout_file_pdf_appendix').addClassName('required-entry');
+					}
+				} else {
+					if ($('layout_file_pdf_appendix')) {
+						$('layout_file_pdf_appendix').removeClassName('required-entry').up('div.field').hide();
+					}
+				}
+			}
+
+			if ($('layout_pdf_attachment1_use')) {
+				if ($('layout_pdf_attachment1_use').value == 1) {
+					if ($('layout_file_pdf_attachment1')) {
+						$('layout_file_pdf_attachment1').up('div.field').show();
+						$('layout_file_pdf_attachment1').addClassName('required-entry');
+					}
+					if ($('layout_pdf_attachment1_name')) {
+						$('layout_pdf_attachment1_name').up('div.field').show();
+						$('layout_pdf_attachment1_name').addClassName('required-entry');
+					}
+				} else {
+					if ($('layout_file_pdf_attachment1')) {
+						$('layout_file_pdf_attachment1').up('div.field').hide();
+						$('layout_file_pdf_attachment1').removeClassName('required-entry');
+					}
+					if ($('layout_pdf_attachment1_name')) {
+						$('layout_pdf_attachment1_name').up('div.field').hide();
+						$('layout_pdf_attachment1_name').removeClassName('required-entry');
+					}
+				}
+			}
+			if ($('layout_pdf_attachment2_use')) {
+				if ($('layout_pdf_attachment2_use').value == 1) {
+					if ($('layout_file_pdf_attachment2')) {
+						$('layout_file_pdf_attachment2').up('div.field').show();
+						$('layout_file_pdf_attachment2').addClassName('required-entry');
+					}
+					if ($('layout_pdf_attachment2_name')) {
+						$('layout_pdf_attachment2_name').up('div.field').show();
+						$('layout_pdf_attachment2_name').addClassName('required-entry');
+					}
+				} else {
+					if ($('layout_file_pdf_attachment2')) {
+						$('layout_file_pdf_attachment2').up('div.field').hide();
+						$('layout_file_pdf_attachment2').removeClassName('required-entry');
+					}
+					if ($('layout_pdf_attachment2_name')) {
+						$('layout_pdf_attachment2_name').up('div.field').hide();
+						$('layout_pdf_attachment2_name').removeClassName('required-entry');
+					}
+				}
+			}
+			if ($('layout_table_columns_use_default')) {
+				if ($('layout_table_columns_use_default').value == 1) {
+					$('attribute-layout_table_columns-container').show();
+				} else {
+					$('attribute-layout_table_columns-container').hide();
+				}
+			}
+			if ($('layout_table_totals_use_custom')) {
+				if ($('layout_table_totals_use_custom').value == 1) {
+					$('attribute-layout_table_totals-container').show();
+					$('layout_table_taxrenderer_default').up('div.field').show();
+				} else {
+					$('attribute-layout_table_totals-container').hide();
+					$('layout_table_taxrenderer_default').up('div.field').hide();
+				}
+			}
+			if ($('layout_table_totals_use_custom')) {
+
+				if ($('layout_table_totals_use_custom').value == 1 && $('layout_table_taxrenderer_default').value == 0) {
+					$('layout_table_tax_full_summary').up('div.field').show();
+					$('layout_table_tax_all').up('div.field').show();
+				} else {
+					$('layout_table_tax_full_summary').up('div.field').hide();
+					$('layout_table_tax_all').up('div.field').hide();
+				}
+			}
+			return true;
+		}
+
+		jQuery(document).ready(hideShowPDFTemplate);
+//jQuery(document).on('change', '#layout_pdf_appendix_use', hideShowPDFTemplate);
+		window.hideShowPDFTemplate = hideShowPDFTemplate;
+	});
+</script>

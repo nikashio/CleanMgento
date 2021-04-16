@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+	<!--
+	<update handle="editor"/>
+	-->
+	<head>
+		<css src="Snmportal_Pdfprint::cm/lib/snm.css"/>
+		<css src="Snmportal_Pdfprint::cm/addon/hint/show-hint.css"/>
+
+	</head>
+	<body>
+		<referenceContainer name="content">
+			<block class="Snmportal\Pdfprint\Block\Adminhtml\Template\Edit" name="snmportal.pdfprint.template_edit"/>
+		</referenceContainer>
+
+		<referenceContainer name="left">
+			<block class="Snmportal\Pdfprint\Block\Adminhtml\Template\Edit\Tabs" name="snmportal.pdfprint.template_edit_tabs">
+				<block class="Snmportal\Pdfprint\Block\Adminhtml\Template\Edit\Tab\Settings" name="snmportal_pdfprint_template_edit_tab_settings"/>
+				<block class="Snmportal\Pdfprint\Block\Adminhtml\Template\Edit\Tab\Main" name="snmportal_pdfprint_template_edit_tab_main"/>
+				<block class="Snmportal\Pdfprint\Block\Adminhtml\Template\Edit\Tab\Background" name="snmportal_pdfprint_template_edit_tab_background"/>
+				<block class="Snmportal\Pdfprint\Block\Adminhtml\Template\Edit\Tab\Layout" name="snmportal_pdfprint_template_edit_tab_layout"/>
+				<block class="Snmportal\Pdfprint\Block\Adminhtml\Template\Edit\Tab\Layout2" name="snmportal_pdfprint_template_edit_tab_layout2"/>
+				<block class="Snmportal\Pdfprint\Block\Adminhtml\Template\Edit\Tab\ExportImport" name="snmportal_pdfprint_template_edit_tab_expimp"/>
+				<block class="Snmportal\Pdfprint\Block\Adminhtml\Template\Edit\Tab\Translate" name="snmportal_pdfprint_template_edit_tab_translate"/>
+
+				<block class="Snmportal\Pdfprint\Block\Adminhtml\Template\Edit\Tab\Templates" name="snmportal_pdfprint_template_edit_tab_templates"/>
+				<block class="Snmportal\Pdfprint\Block\Adminhtml\Template\Edit\Tab\Style" name="snmportal_pdfprint_template_edit_tab_style"/>
+				<action method="addTab">
+					<argument name="name" xsi:type="string">settings_section</argument>
+					<argument name="block" xsi:type="string">snmportal_pdfprint_template_edit_tab_settings</argument>
+				</action>
+				<action method="addTab">
+					<argument name="name" xsi:type="string">main_section</argument>
+					<argument name="block" xsi:type="string">snmportal_pdfprint_template_edit_tab_main</argument>
+				</action>
+				<action method="addTab">
+					<argument name="name" xsi:type="string">layout_background</argument>
+					<argument name="block" xsi:type="string">snmportal_pdfprint_template_edit_tab_background</argument>
+				</action>
+				<action method="addTab">
+					<argument name="name" xsi:type="string">layout_section</argument>
+					<argument name="block" xsi:type="string">snmportal_pdfprint_template_edit_tab_layout</argument>
+				</action>
+				<action method="addTab">
+					<argument name="name" xsi:type="string">layout_section2</argument>
+					<argument name="block" xsi:type="string">snmportal_pdfprint_template_edit_tab_layout2</argument>
+				</action>
+				<action method="addTab">
+					<argument name="name" xsi:type="string">layout_templates</argument>
+					<argument name="block" xsi:type="string">snmportal_pdfprint_template_edit_tab_templates</argument>
+				</action>
+				<action method="addTab">
+					<argument name="name" xsi:type="string">layout_style</argument>
+					<argument name="block" xsi:type="string">snmportal_pdfprint_template_edit_tab_style</argument>
+				</action>
+				<action method="addTab">
+					<argument name="name" xsi:type="string">layout_translate</argument>
+					<argument name="block" xsi:type="string">snmportal_pdfprint_template_edit_tab_translate</argument>
+				</action>
+				<action method="addTab">
+					<argument name="name" xsi:type="string">impexp</argument>
+					<argument name="block" xsi:type="string">snmportal_pdfprint_template_edit_tab_expimp</argument>
+				</action>
+			</block>
+		</referenceContainer>
+
+		<referenceContainer name="js">
+			<block class="Magento\Backend\Block\Template" template="Snmportal_Pdfprint::instance/js.phtml" name="widget_instance_js"/>
+		</referenceContainer>
+
+	</body>
+</page>

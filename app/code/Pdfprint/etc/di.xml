@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+<!--
+    <preference for="Magento\Framework\Mail\MessageInterface"
+                type="Snmportal\Pdfprint\Model\Email\Message" />
+-->
+
+    <type name="Snmportal\Pdfprint\Logger\Handler">
+        <arguments>
+            <argument name="filesystem" xsi:type="object">Magento\Framework\Filesystem\Driver\File</argument>
+        </arguments>
+    </type>
+    <type name="Snmportal\Pdfprint\Logger\Logger">
+        <arguments>
+            <argument name="name" xsi:type="string">snm-portal</argument>
+            <argument name="handlers" xsi:type="array">
+                <item name="system" xsi:type="object">Snmportal\Pdfprint\Logger\Handler</item>
+            </argument>
+        </arguments>
+    </type>
+    <!-- overload frontend print -->
+    <type name="Magento\Sales\Controller\Order\PrintAction">
+        <plugin name="Snmportal_Pdfprint::before" type="Snmportal\Pdfprint\Plugin\Order\Frontendprint\Order" sortOrder="1"/>
+    </type>
+    <type name="Magento\Sales\Controller\Order\PrintInvoice">
+        <plugin name="Snmportal_Pdfprint" type="Snmportal\Pdfprint\Plugin\Order\Frontendprint\Invoice" sortOrder="1"/>
+    </type>
+    <type name="Magento\Sales\Controller\Order\PrintCreditmemo">
+        <plugin name="Snmportal_Pdfprint" type="Snmportal\Pdfprint\Plugin\Order\Frontendprint\Creditmemo" sortOrder="1"/>
+    </type>
+    <type name="Magento\Sales\Controller\Order\PrintShipment">
+        <plugin name="Snmportal_Pdfprint" type="Snmportal\Pdfprint\Plugin\Order\Frontendprint\Shipment" sortOrder="1"/>
+    </type>
+    <!-- overload getPDF -->
+    <type name="Magento\Sales\Model\Order\Pdf\Invoice">
+        <plugin name="snmPdfPrintEngine" type="Snmportal\Pdfprint\Plugin\Order\Pdf\Invoice" sortOrder="1"/>
+    </type>
+    <type name="Magento\Sales\Model\Order\Pdf\Shipment">
+        <plugin name="snmPdfPrintEngine" type="Snmportal\Pdfprint\Plugin\Order\Pdf\Shipment" sortOrder="1"/>
+    </type>
+    <type name="Magento\Sales\Model\Order\Pdf\Creditmemo">
+        <plugin name="snmPdfPrintEngine" type="Snmportal\Pdfprint\Plugin\Order\Pdf\Creditmemo" sortOrder="1"/>
+    </type>
+
+    <!-- email attachments -->
+    <type name="Magento\Sales\Model\Order\Email\Sender\OrderSender">
+        <plugin name="Snmportal_Pdfprint::before" type="Snmportal\Pdfprint\Plugin\Order\Email\Sender\OrderSender" sortOrder="1"/>
+    </type>
+    <type name="Magento\Sales\Model\Order\Email\Sender\InvoiceSender">
+        <plugin name="Snmportal_Pdfprint::before" type="Snmportal\Pdfprint\Plugin\Order\Email\Sender\InvoiceSender" sortOrder="1"/>
+    </type>
+    <type name="Magento\Sales\Model\Order\Email\Sender\ShipmentSender">
+        <plugin name="Snmportal_Pdfprint::before" type="Snmportal\Pdfprint\Plugin\Order\Email\Sender\ShipmentSender" sortOrder="1"/>
+    </type>
+    <type name="Magento\Sales\Model\Order\Email\Sender\CreditmemoSender">
+        <plugin name="Snmportal_Pdfprint::before" type="Snmportal\Pdfprint\Plugin\Order\Email\Sender\CreditmemoSender" sortOrder="1"/>
+    </type>
+
+    <type name="Magento\Framework\Mail\TransportInterface">
+        <plugin name="SNMPdfprintAttachEmail" type="Snmportal\Pdfprint\Plugin\Mail\TransportInterfacePlugin" sortOrder="0"/>
+    </type>
+
+    <type name="Magento\Sales\Block\Order\PrintShipment">
+        <plugin name="Snmportal_Pdfprint::before" type="Snmportal\Pdfprint\Plugin\Sales\Block\Order\PrintShipment" sortOrder="1"/>
+    </type>
+
+    <type name="Magento\Framework\App\Response\Http\FileFactory">
+        <plugin name="Snmportal_Pdfprint::around" type="Snmportal\Pdfprint\Plugin\App\Response\Http\FileFactory" sortOrder="1"/>
+    </type>
+
+    <!-- overload getPDF -->
+    <!--
+    <type name="Magento\Tax\Model\Sales\Pdf\Tax">
+        <plugin name="snmPdfPrintEngine" type="Snmportal\Pdfprint\Plugin\Tax\Sales\Pdf\Tax" sortOrder="1"/>
+    </type>
+    -->
+    <!-- overload Translate -->
+    <!--
+        <type name="Magento\Framework\Translate">
+            <plugin name="snmPdfPrintEngine" type="Snmportal\Pdfprint\Plugin\Framework\Translate" sortOrder="1"/>
+        </type>
+    -->
+    <type name="Magento\Framework\Filter\VariableResolver\StrategyResolver">
+        <plugin name="Snmportal_Pdfprint::before" type="Snmportal\Pdfprint\Plugin\Filter\VariableResolver\StrategyResolver" sortOrder="1"/>
+    </type>
+
+</config>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+
+
+	<!-- to 2.07
+		<container name="listing_top">
+			<massaction name="listing_massaction">
+				<action name="snmpdfprint_pdforders">
+					<argument name="data" xsi:type="array">
+						<item name="config" xsi:type="array">
+							<item name="type" xsi:type="string">snmpdfprint_pdforders</item>
+							<item name="label" xsi:type="string" translate="true">SNM Print Orders</item>
+							<item name="url" xsi:type="url" path="snmpdfprint/order/pdforders"/>
+						</item>
+					</argument>
+				</action>
+			</massaction>
+		</container>
+	-->
+
+	<listingToolbar name="listing_top">
+		<massaction name="listing_massaction">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="component" xsi:type="string">Magento_Ui/js/grid/tree-massactions</item>
+				</item>
+			</argument>
+			<!--
+						<action name="snmpdfprint_pdforders">
+							<argument name="data" xsi:type="array">
+								<item name="config" xsi:type="array">
+									<item name="type" xsi:type="string">snmpdfprint_pdforders</item>
+									<item name="label" xsi:type="string" translate="true">SNM Print Orders</item>
+									<item name="url" xsi:type="url" path="snmpdfprint/order/pdforders"/>
+								</item>
+							</argument>
+						</action>
+			-->
+			<action name="snmpdfprint_pdf">
+				<settings>
+					<type>snmpdfprint_order</type>
+					<label translate="true">Order Print ...</label>
+					<actions class="Snmportal\Pdfprint\Ui\Component\Order\Massaction"/>
+				</settings>
+			</action>
+			<!--
+			<action name="snmpdfprint_pdf">
+				<argument name="data" xsi:type="array">
+					<item name="config" xsi:type="array">
+						<item name="type" xsi:type="string">snmpdfprint_order</item>
+						<item name="label" xsi:type="string" translate="true">Print ...</item>
+					</item>
+						<item name="type" xsi:type="string">order</item>
+						<item name="urlPath" xsi:type="string">snmpdfprint/order/pdforders</item>
+						<item name="paramName" xsi:type="string">tplid</item>
+				</argument>
+				<argument name="actions" xsi:type="configurableObject">
+					<argument name="class" xsi:type="string">Snmportal\Pdfprint\Ui\Component\Massaction</argument>
+					<argument name="data" xsi:type="array">
+						<item name="type" xsi:type="string">order</item>
+						<item name="urlPath" xsi:type="string">snmpdfprint/order/pdforders</item>
+						<item name="paramName" xsi:type="string">tplid</item>
+					</argument>
+				</argument>
+			</action>
+-->
+		</massaction>
+	</listingToolbar>
+
+</listing>
+

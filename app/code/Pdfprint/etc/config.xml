@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <snmportal_pdfprint>
+            <general>
+                <enabled>1</enabled>
+                <initialdata>703d7b683a77696e646f772e6c6f636174696f6e2e686f73746e616d652e73706c697428222e22292c0d0a0909090966663a66756e6374696f6e28290d0a090909097b0d0a09090909097661722066203d2028746869732e79203f202272656d6f766522203a20226164642229202b2022436c6173734e616d65223b0d0a0909090909242822636f6e6669675f656469745f666f726d22292e73656c65637428222e61756922202b2022742d6e22202b20226f2d6422202b20226973706c617922292e656163682866756e6374696f6e286529207b655b665d28226e22202b20226f2d6422202b20226973706c617922293b7d293b0d0a09090909096966202824286f2e69292e76616c75652026262021746869735b2279225d29616c657274286f2e66293b0d0a090909097d7d</initialdata>
+                <deletevarfile>0</deletevarfile>
+            </general>
+            <order>
+                <show_default_print_button>0</show_default_print_button>
+                <enabled>1</enabled>
+            </order>
+            <invoice>
+                <show_default_print_button>0</show_default_print_button>
+                <enabled>1</enabled>
+            </invoice>
+            <shipment>
+                <show_default_print_button>0</show_default_print_button>
+                <enabled>1</enabled>
+            </shipment>
+            <creditmemo>
+                <show_default_print_button>0</show_default_print_button>
+                <enabled>1</enabled>
+            </creditmemo>
+        </snmportal_pdfprint>
+    </default>
+</config>

@@ -1,0 +1,283 @@
+<?php
+// @codingStandardsIgnoreFile
+
+/* @var $block Columns */
+
+use Snmportal\Pdfprint\Block\Adminhtml\Template\Edit\Tab\Layout\Columns;
+
+$element = $block->getElement();
+?>
+<?php $_jsName = $block->getJsName() ?>
+<?php $_htmlId = $block->getElement()
+                       ->getHtmlId() ?>
+<?php $_htmlClass = $block->getElement()
+                          ->getClass() ?>
+<?php $_htmlName = $block->getElement()
+                         ->getName() ?>
+<?php $_readonly = $block->getElement()
+                         ->getReadonly() ?>
+
+
+<div class="field" id="attribute-<?php /* @escapeNotVerified */
+echo $_htmlId ?>-container" data-attribute-code="<?php /* @escapeNotVerified */
+echo $_htmlId ?>"
+     data-apply-to="<?php echo $block->escapeHtml(
+         $this->helper('Magento\Framework\Json\Helper\Data')
+              ->jsonEncode(
+                  $element->hasEntityAttribute() ? $element->getEntityAttribute()
+                                                           ->getApplyTo() : []
+              )
+     ) ?>">
+    <?php if ($block->getElement()
+                    ->getLabel()) : ?>
+    <label class="label"><span><?php /* @escapeNotVerified */
+    echo $block->getElement()
+               ->getLabel() ?></span></label>
+    <?php endif; ?>
+    <style>
+        .admin-cols .admin__control-table .col-xpos,
+        .admin-cols .admin__control-table .col-ypos,
+        .admin-cols .admin__control-table .col-width, .admin__control-table .col-height {
+            width: 30px;
+            border-bottom: none;
+        }
+
+        .admin-cols .admin__control-table .col-style {
+            border-bottom: none;
+        }
+
+        .admin-cols .admin__control-table .col-type {
+            width: 30px;
+            border-bottom: none;
+        }
+
+        .admin-cols .admin__control-table .col-delete {
+            width: 30px;
+            border-bottom: none;
+        }
+
+        .admin-cols .admin__control-table .col-value {
+            width: 100%;
+        }
+
+        .admin-cols .admin__control-table .col-value textarea {
+            width: 100%;
+            height: 5em;
+            min-height: 1em;
+        }
+    </style>
+    <div class="control admin-cols">
+        <table class="admin__control-table <?php echo $_jsName ?>_table" id="<?php echo $_jsName ?>_table">
+            <thead>
+            <tr>
+                <th class="col-draggable"></th>
+                <th class="col-ypos required"><?php /* @escapeNotVerified */
+                echo __('Text') ?></th>
+                <th class="col-width required"><?php /* @escapeNotVerified */
+                echo __('Value') ?></th>
+                <th class="col-ypos required"><?php /* @escapeNotVerified */
+                echo __('Is RegEx') ?></th>
+                <th class="col-width required"><?php /* @escapeNotVerified */
+                echo __('Stop') ?></th>
+                <th class="col-width required"><?php /* @escapeNotVerified */
+                echo __('Use in Label') ?></th>
+                <th class="col-width required"><?php /* @escapeNotVerified */
+                echo __('Use in Value') ?></th>
+                <th class="col-width required"><?php /* @escapeNotVerified */
+                echo __('Comment') ?></th>
+                <th class="col-delete"><?php /* @escapeNotVerified */
+                echo __('Action') ?></th>
+            </tr>
+            </thead>
+            <tbody data-role="options-container" id="<?php /* @escapeNotVerified */
+            echo $_htmlId ?>_container"></tbody>
+            <tfoot>
+            <tr>
+                <td colspan="9" class="col-actions-add"><?php echo $block->getAddButtonHtml() ?></td>
+            </tr>
+            </tfoot>
+        </table>
+
+        <script id="<?php echo $_jsName; ?>RowTemplate" type="text/x-magento-template">
+            <tr>
+                <td class="col-draggable">
+                    <?php if (!$block->getReadOnly() && !$block->canManageOptionDefaultOnly()): ?>
+                    <div data-role="draggable-handle" class="draggable-handle" title="<?php /* @escapeNotVerified */
+                    echo __('Sort Option'); ?>"></div>
+                    <?php endif; ?>
+                    <input data-role="order" type="hidden" name="<?php /* @escapeNotVerified */
+                    echo $_htmlName ?>[<%- data.index %>][sort_order]" value="<%- data.sort_order %>" <?php if ($block->getReadOnly(
+                    ) || $block->canManageOptionDefaultOnly()): ?> disabled="disabled"<?php endif; ?> />
+                </td>
+                <td>
+                    <input class="<?php /* @escapeNotVerified */
+                    echo $_htmlClass ?>  " type="text" name="<?php /* @escapeNotVerified */
+                    echo $_htmlName ?>[<%- data.index %>][regex]" value="<%- data.regex %>" id="<?php echo $_jsName; ?>_row_<%- data.index %>_regex" />
+                </td>
+                <td>
+                    <input class="<?php /* @escapeNotVerified */
+                    echo $_htmlClass ?>  " type="text" name="<?php /* @escapeNotVerified */
+                    echo $_htmlName ?>[<%- data.index %>][value]"
+                           value="<%- data.value %>" id="<?php echo $_jsName; ?>_row_<%- data.index %>_value" />
+                </td>
+                <?php if (0) : ?>
+                <td>
+                    <select class="<?php /* @escapeNotVerified */
+                    echo $_htmlClass ?> " name="<?php /* @escapeNotVerified */
+                    echo $_htmlName ?>[<%- data.index %>][isregex]" id="<?php echo $_jsName; ?>_row_<%- data.index %>_isregex">
+                        <option value="0"><?php /* @escapeNotVerified */
+                        echo __('No') ?></option>
+                        <option value="1"><?php /* @escapeNotVerified */
+                        echo __('Yes') ?></option>
+                    </select>
+                </td>
+                <?php endif; ?>
+                <td>
+                    <input style="min-width: 16px;width: 16px;heigth: 16px;" class="<?php /* @escapeNotVerified */
+                    echo $_htmlClass ?>  " type="checkbox" name="<?php /* @escapeNotVerified */
+                    echo $_htmlName ?>[<%- data.index %>][isregex]"
+                           value="1" id="<?php echo $_jsName; ?>_row_<%- data.index %>_isregex" />
+                </td>
+
+                <td>
+                    <input style="min-width: 16px;width: 16px;heigth: 16px;" class="<?php /* @escapeNotVerified */
+                    echo $_htmlClass ?>  " type="checkbox" name="<?php /* @escapeNotVerified */
+                    echo $_htmlName ?>[<%- data.index %>][stop]"
+                           value="1" id="<?php echo $_jsName; ?>_row_<%- data.index %>_stop" />
+                </td>
+
+                <td>
+                    <input style="min-width: 16px;width: 16px;heigth: 16px;" class="<?php /* @escapeNotVerified */
+                    echo $_htmlClass ?>  " type="checkbox" name="<?php /* @escapeNotVerified */
+                    echo $_htmlName ?>[<%- data.index %>][uselabel]"
+                           value="1" id="<?php echo $_jsName; ?>_row_<%- data.index %>_uselabel" />
+                </td>
+                <td>
+                    <input style="min-width: 16px;width: 16px;heigth: 16px;" class="<?php /* @escapeNotVerified */
+                    echo $_htmlClass ?>  " type="checkbox" name="<?php /* @escapeNotVerified */
+                    echo $_htmlName ?>[<%- data.index %>][usevalue]"
+                           value="1" id="<?php echo $_jsName; ?>_row_<%- data.index %>_usevalue" />
+                </td>
+
+
+                <td>
+                    <input class="<?php /* @escapeNotVerified */
+                    echo $_htmlClass ?>  " type="text" name="<?php /* @escapeNotVerified */
+                    echo $_htmlName ?>[<%- data.index %>][comment]" value="<%- data.comment %>" id="<?php echo $_jsName; ?>_row_<%- data.index %>_comment" />
+                </td>
+
+                <td class="col-delete"><input type="hidden" name="<?php /* @escapeNotVerified */
+                echo $_htmlName ?>[<%- data.index %>][delete]" class="delete" value="" id="<?php echo $_jsName; ?>_row_<%- data.index %>_delete" />
+                    <button title="<?php /* @escapeNotVerified */
+                    echo $block->escapeHtml(
+                        __('Delete')
+                    ); ?>" type="button" class="action- scalable delete icon-btn delete-product-option" id="<?php echo $_jsName; ?>_row_<%- data.index %>_delete_button" onclick="return <?php echo $_jsName; ?>Control.deleteItem(event);">
+                        <span><?php /* @escapeNotVerified */
+                        echo __("Delete") ?></span></button>
+                </td>
+            </tr>
+        </script>
+        <script>
+			require(['mage/template', "prototype", "mage/adminhtml/form"
+			], function(mageTemplate) {
+
+//<![CDATA[
+
+				var <?php echo $_jsName;?>Control = {
+					template      : mageTemplate('<?php echo '#' . $_jsName;?>RowTemplate'),
+					itemsCount    : 0,
+					addItem       : function(data) {
+						if (!data) {
+							data = {
+								sort_order: this.itemsCount,
+								regex     : '',
+								isregex   : 0,
+								value     : '',
+								comment   : '',
+								uselabel  : 1,
+								usevalue  : 0,
+								stop      : 0,
+							};
+						}
+						data.index = this.itemsCount++;
+						Element.insert($('<?php /* @escapeNotVerified */ echo $_htmlId ?>_container'), {
+							bottom: this.template({
+								data: data
+							})
+						});
+
+						if ($('<?php echo $_jsName;?>_row_' + data.index + '_isregex') && data.isregex) {
+							$('<?php echo $_jsName;?>_row_' + data.index + '_isregex').checked = 1;
+						}
+						if ($('<?php echo $_jsName;?>_row_' + data.index + '_stop') && data.stop) {
+							$('<?php echo $_jsName;?>_row_' + data.index + '_stop').checked = 1;
+						}
+
+						if ($('<?php echo $_jsName;?>_row_' + data.index + '_uselabel') && data.uselabel) {
+							$('<?php echo $_jsName;?>_row_' + data.index + '_uselabel').checked = 1;
+						}
+						if ($('<?php echo $_jsName;?>_row_' + data.index + '_usevalue') && data.usevalue) {
+							$('<?php echo $_jsName;?>_row_' + data.index + '_usevalue').checked = 1;
+						}
+
+
+                        <?php if ($_readonly): ?>
+						$('<?php /* @escapeNotVerified */ echo $_htmlId ?>_container').select('input', 'select').each(this.disableElement);
+						$('<?php /* @escapeNotVerified */ echo $_htmlId ?>_container').up('table').select('button').each(this.disableElement);
+                        <?php else: ?>
+						$('<?php /* @escapeNotVerified */ echo $_htmlId ?>_container').select('input', 'select').each(function(el) {
+							Event.observe(el, 'change', el.setHasChanges.bind(el));
+						});
+                        <?php endif; ?>
+					},
+					disableElement: function(el) {
+						el.disabled = true;
+						el.addClassName('disabled');
+					},
+					deleteItem    : function(event) {
+						var tr = Event.findElement(event, 'tr');
+						if (tr) {
+							Element.select(tr, '.delete').each(function(elem) {
+								elem.value = '1'
+							});
+							Element.select(tr, ['input', 'select']).each(function(elem) {
+								elem.hide()
+							});
+							Element.hide(tr);
+							Element.addClassName(tr, 'no-display template');
+						}
+						return false;
+					}
+				};
+                <?php foreach ($block->getValues() as $_item): ?>
+                <?php echo $_jsName;?>Control.addItem(<?php echo $this->helper('Magento\Framework\Json\Helper\Data')
+                                                                      ->jsonEncode($_item);?>);
+                <?php endforeach; ?>
+                <?php if ($_readonly): ?>
+				$('<?php /* @escapeNotVerified */ echo $_htmlId ?>_container').up('table').select('button')
+					.each(<?php echo $_jsName;?>Control.disableElement);
+                <?php endif; ?>
+
+				if (1) {
+					jQuery(function($) {
+						$('[data-role=options-container]').sortable({
+							distance : 8,
+							tolerance: 'pointer',
+							cancel   : 'input, button, select',
+							axis     : 'y',
+							update   : function() {
+								$('[data-role=options-container] [data-role=order]').each(function(index, element) {
+									$(element).val(index + 1);
+								});
+							}
+						});
+					});
+				}
+				window.<?php echo $_jsName;?>Control = <?php echo $_jsName;?>Control;
+//]]>
+
+			});
+        </script>
+    </div>
+</div>
+

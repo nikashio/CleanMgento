@@ -1,0 +1,33 @@
+/*
+.page-actions  button#print{display:none !important;}
+*/
+.admin-snm-dropdown, .snmbutton {
+	float: right;
+	margin-left: 13px;
+	order: 1000;
+	z-index: 4;
+}
+
+.admin-snm-dropdown .admin__action-dropdown {
+	font-weight: 600;
+	padding-left: 3.1rem;
+	background-color: transparent;
+}
+
+.admin-snm-dropdown .admin__action-dropdown.active {
+	background-color: #ffffff;
+}
+
+.admin-snm-dropdown .admin__action-dropdown:after {
+}
+
+.admin__action-dropdown-wrap .admin__action-dropdown-text:after {
+	left: 0px;
+	right: 0;
+}
+
+.admin-snm-dropdown .admin__action-dropdown-menu > li > a:hover {
+	background-color: #e0f6fe;
+	color: #41362f;
+}
+

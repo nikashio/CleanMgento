@@ -1,0 +1,63 @@
+<?php
+/** @var $block Template */
+
+use Magento\Backend\Block\Template;
+
+?>
+<div class="store-switcher store-view">
+    <span class="store-switcher-label"><?php /* @escapeNotVerified */
+        echo __('Install:') ?></span>
+	<div class="actions dropdown closable">
+		<button
+			type="button"
+			class="admin__action-dropdown"
+			data-mage-init='{"dropdown":{}}'
+			data-toggle="dropdown"
+			aria-haspopup="true"
+			id="store-change-button">
+            <?php /* @escapeNotVerified */
+            echo __('Sample data') ?>
+		</button>
+		<ul class="dropdown-menu" data-role="stores-list">
+			<li>
+				<a href="<?php /* @escapeNotVerified */
+                echo $block->getUrl('adminhtml/system_account/index') ?>">
+                    <?php /* @escapeNotVerified */
+                    echo __('German Version') ?>
+				</a>
+			</li>
+			<li>
+				<a href="<?php /* @escapeNotVerified */
+                echo $block->getUrl('adminhtml/system_account/index') ?>">
+                    <?php /* @escapeNotVerified */
+                    echo __('English Version') ?>
+				</a>
+			</li>
+            <?php if (0): ?>
+				<li>
+					<a href="<?php /* @escapeNotVerified */
+                    echo $block->getUrl('adminhtml/system_account/index') ?>">
+                        <?php /* @escapeNotVerified */
+                        echo __('Chinese Version') ?>
+					</a>
+				</li>
+				<li>
+					<a href="<?php /* @escapeNotVerified */
+                    echo $block->getUrl('adminhtml/system_account/index') ?>">
+                        <?php /* @escapeNotVerified */
+                        echo __('Arabic Version (RTL)') ?>
+					</a>
+				</li>
+            <?php endif; ?>
+			<li>
+				<a href="<?php /* @escapeNotVerified */
+                echo $block->getUrl('snmpdfprint/template/importm1') ?>">
+                    <?php /* @escapeNotVerified */
+                    echo __('Import from Magento1') ?>
+				</a>
+			</li>
+		</ul>
+	</div>
+</div>
+
+
